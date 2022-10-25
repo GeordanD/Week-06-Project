@@ -89,7 +89,7 @@ the deck and compares the numbers/values
 of each card by calling the pop function each time it iterates!
 Also assigns each player a half of the deck.
 */
-for (let i = 1; i < playerOneDeck.length; i++) {
+for (let i = 0; i < playerOneDeck.length; i++) {
     const playerOneCard = playerOneDeck.pop();
     const playerTwoCard = playerTwoDeck.pop();
     console.log(`
@@ -119,15 +119,21 @@ console.log(`__FINAL SCORE'S__
   Player Two: ${averageArray(playerTwoPoints)}`);
 // This loop is here to tell what player won the game
 
-console.log(playerOnePoints);
-console.log(playerTwoPoints);
+console.log(playerOnePoints, playerOnePoints.length);
+console.log(playerTwoPoints, playerTwoPoints.length);
 // console.log(averageArray(playerTwoPoints));
 // console.log(averageArray(playerOnePoints));
 if (averageArray(playerOnePoints) < averageArray(playerTwoPoints)) {
     console.log(`-END GAME-
     Player One: ${averageArray(playerOnePoints)} Winner!`);
-} else if (averageArray(playerOnePoints) > averageArray(playerTwoPoints)) {
+} else if (averageArray(playerOnePoints) < averageArray(playerTwoPoints)) {
   console.log(`-END GAME-
+    Player Two: ${averageArray(playerTwoPoints)} Winner!`);
+} else if (averageArray(playerTwoPoints) < averageArray(playerOnePoints)) {
+      console.log(`-END GAME-
+    Player One: ${averageArray(playerTwoPoints)} Winner!`);
+} else if (averageArray(playerTwoPoints) > averageArray(playerOnePoints)) {
+      console.log(`-END GAME-
     Player Two: ${averageArray(playerTwoPoints)} Winner!`);
 } else {
     console.log("-DRAW-")
