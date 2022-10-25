@@ -89,7 +89,7 @@ the deck and compares the numbers/values
 of each card by calling the pop function each time it iterates!
 Also assigns each player a half of the deck.
 */
-for (let i = 0; i < playerOneDeck.length; i++) {
+for (let i = 0; i < 26; i++) {
     const playerOneCard = playerOneDeck.pop();
     const playerTwoCard = playerTwoDeck.pop();
     console.log(`
@@ -114,8 +114,8 @@ console.log(`__FINAL SCORE'S__
 // This loop is here to tell what player won the game
 let playerOneTotalSum = averageArray(playerOnePoints);
 let playerTwoTotalSum = averageArray(playerTwoPoints);
-console.log(playerOneTotalSum, playerOnePoints.length);
-console.log(playerTwoTotalSum, playerTwoPoints.length);
+// console.log(playerOneTotalSum, playerOnePoints.length);
+// console.log(playerTwoTotalSum, playerTwoPoints.length);
 // console.log(averageArray(playerTwoPoints));
 // console.log(averageArray(playerOnePoints));
 if (playerOneTotalSum > playerTwoTotalSum) {
