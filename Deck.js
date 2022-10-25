@@ -101,13 +101,7 @@ Round ${i} End!`);
     if (cardsValue[playerOneCard.values] > cardsValue[playerTwoCard.values]) {
         playerOnePoints.push(cardsValue[playerTwoCard.values], cardsValue[playerOneCard.values]);
         console.log("Player One Wins");
-    } else if (cardsValue[playerOneCard.values] > cardsValue[playerTwoCard.values]) {
-        playerOnePoints.push(cardsValue[playerTwoCard.values], cardsValue[playerOneCard.values]);
-        console.log("Player One Loss");
-    } else if (cardsValue[playerTwoCard.values] < cardsValue[playerOneCard.values]) {
-        playerTwoPoints.push(cardsValue[playerTwoCard.values],cardsValue[playerOneCard.values]);
-        console.log("Player Two Loss");
-    } else if (cardsValue[playerTwoCard.values] > cardsValue[playerOneCard.values]) {
+    }  else if (cardsValue[playerTwoCard.values] > cardsValue[playerOneCard.values]) {
         playerTwoPoints.push(cardsValue[playerTwoCard.values],cardsValue[playerOneCard.values])
         console.log("Player Two Win");
     } else {
@@ -118,23 +112,18 @@ console.log(`__FINAL SCORE'S__
   Player one: ${averageArray(playerOnePoints)}
   Player Two: ${averageArray(playerTwoPoints)}`);
 // This loop is here to tell what player won the game
-
-console.log(playerOnePoints, playerOnePoints.length);
-console.log(playerTwoPoints, playerTwoPoints.length);
+let playerOneTotalSum = averageArray(playerOnePoints);
+let playerTwoTotalSum = averageArray(playerTwoPoints);
+console.log(playerOneTotalSum, playerOnePoints.length);
+console.log(playerTwoTotalSum, playerTwoPoints.length);
 // console.log(averageArray(playerTwoPoints));
 // console.log(averageArray(playerOnePoints));
-if (averageArray(playerOnePoints) < averageArray(playerTwoPoints)) {
+if (playerOneTotalSum < playerTwoTotalSum) {
     console.log(`-END GAME-
-    Player One: ${averageArray(playerOnePoints)} Winner!`);
-} else if (averageArray(playerOnePoints) < averageArray(playerTwoPoints)) {
+    Player One: ${playerOneTotalSum} Winner!`);
+} else if (playerTwoTotalSum < playerOneTotalSum) {
   console.log(`-END GAME-
-    Player Two: ${averageArray(playerTwoPoints)} Winner!`);
-} else if (averageArray(playerTwoPoints) < averageArray(playerOnePoints)) {
-      console.log(`-END GAME-
-    Player One: ${averageArray(playerTwoPoints)} Winner!`);
-} else if (averageArray(playerTwoPoints) > averageArray(playerOnePoints)) {
-      console.log(`-END GAME-
-    Player Two: ${averageArray(playerTwoPoints)} Winner!`);
+    Player Two: ${playerTwoTotalSum} Winner!`);
 } else {
     console.log("-DRAW-")
 
