@@ -62,7 +62,7 @@ function averageArray(array1) {
   playerSum = array1.reduce((previousValue, currentValue) => {
     return previousValue + currentValue;
   });
-  return `${playerSum}`;
+  return playerSum;
 }
 
 //This card class is necessary for the entire game too work because it needs to have the values and the suites to make sure their isn't multiples.
@@ -118,10 +118,10 @@ console.log(playerOneTotalSum, playerOnePoints.length);
 console.log(playerTwoTotalSum, playerTwoPoints.length);
 // console.log(averageArray(playerTwoPoints));
 // console.log(averageArray(playerOnePoints));
-if (playerOneTotalSum < playerTwoTotalSum) {
+if (playerOneTotalSum > playerTwoTotalSum) {
     console.log(`-END GAME-
     Player One: ${playerOneTotalSum} Winner!`);
-} else if (playerTwoTotalSum < playerOneTotalSum) {
+} else if (playerTwoTotalSum > playerOneTotalSum) {
   console.log(`-END GAME-
     Player Two: ${playerTwoTotalSum} Winner!`);
 } else {
