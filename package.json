@@ -1,0 +1,27 @@
+{
+  "name": "week-6-project",
+  "version": "1.0.0",
+  "description": "Game of War",
+  "main": "Deck.js",
+  "scripts": {
+    "test": "function averageArray"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeordanD/Week-06-Project.git"
+  },
+  "keywords": [
+    "averageArray"
+  ],
+  "author": "GeordanD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeordanD/Week-06-Project/issues"
+  },
+  "homepage": "https://github.com/GeordanD/Week-06-Project#readme",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "moch": "^0.0.1",
+    "mocha": "^10.1.0"
+  }
+}

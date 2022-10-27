@@ -59,11 +59,15 @@ function newDeck() {
 //This function takes the points array at the end and adds them up for a final score.
 
 function averageArray(array1) {
-  playerSum = array1.reduce((previousValue, currentValue) => {
-    return previousValue + currentValue;
-  });
-  return playerSum;
-}
+    playerSum = array1.reduce((previousValue, currentValue) => {
+        return previousValue + currentValue
+      
+    });if (typeof array1 === String || typeof array1 === Boolean) {
+      throw new Error("array1 must be a Number");
+    }
+    return playerSum;
+    
+};
 
 //This card class is necessary for the entire game too work because it needs to have the values and the suites to make sure their isn't multiples.
 
@@ -83,6 +87,7 @@ deck.deckShuffle();
 const halfDeck = Math.ceil(deck.cardsInDeck / 2);
 playerOneDeck = (deck.cards.slice(0, halfDeck));
 playerTwoDeck = (deck.cards.slice(halfDeck, deck.cardsInDeck));
+// console.log(playerOneDeck);
 /*
 This loop takes the two shuffled half of 
 the deck and compares the numbers/values
@@ -93,11 +98,11 @@ for (let i = 0; i < 26; i++) {
     const playerOneCard = playerOneDeck.pop();
     const playerTwoCard = playerTwoDeck.pop();
     console.log(`
-Round ${i} Start!
-    Player One: ${cardsValue[playerOneCard.values]}`);
+___Round ${i} Start!___
+    Player One's Card: ${cardsValue[playerOneCard.values]}`);
     console.log(`
-    Player Two: ${cardsValue[playerTwoCard.values]}
-Round ${i} End!`);
+    Player Two's Card: ${cardsValue[playerTwoCard.values]}
+___Round ${i} End!___`);
     if (cardsValue[playerOneCard.values] > cardsValue[playerTwoCard.values]) {
         playerOnePoints.push(cardsValue[playerTwoCard.values], cardsValue[playerOneCard.values]);
         console.log("Player One Wins");
@@ -105,48 +110,23 @@ Round ${i} End!`);
         playerTwoPoints.push(cardsValue[playerTwoCard.values],cardsValue[playerOneCard.values])
         console.log("Player Two Win");
     } else {
-        console.log("Draw");
+        console.log("Draw no points");
     }
 }
-console.log(`__FINAL SCORE'S__
-  Player one: ${averageArray(playerOnePoints)}
-  Player Two: ${averageArray(playerTwoPoints)}`);
+
+//This portion of code is the final score board prints final scores of each player and who the
+console.log(`     ____FINAL SCORE'S____
+  Player One Total Score: ${averageArray(playerOnePoints)}
+  Player Two Total Score: ${averageArray(playerTwoPoints)}`);
 // This loop is here to tell what player won the game
 let playerOneTotalSum = averageArray(playerOnePoints);
 let playerTwoTotalSum = averageArray(playerTwoPoints);
-// console.log(playerOneTotalSum, playerOnePoints.length);
-// console.log(playerTwoTotalSum, playerTwoPoints.length);
-// console.log(averageArray(playerTwoPoints));
-// console.log(averageArray(playerOnePoints));
 if (playerOneTotalSum > playerTwoTotalSum) {
     console.log(`-END GAME-
-    Player One: ${playerOneTotalSum} Winner!`);
+    Player One Winner! with ${playerOneTotalSum} Points!`);
 } else if (playerTwoTotalSum > playerOneTotalSum) {
   console.log(`-END GAME-
-    Player Two: ${playerTwoTotalSum} Winner!`);
+    Player Two Winner! with ${playerTwoTotalSum} Points!`);
 } else {
     console.log("-DRAW-")
-
 }
-    
-
-  //TODO Find out why smaller number is some times the winner!
-
-
-
-
-
-
-
-
-
-//   } else if (averageArray(playerOnePoints) < averageArray(playerTwoPoints)) {
-//     console.log(`-END GAME-
-//     Player One: ${averageArray(playerTwoPoints)} Winner!`);
-// } else if (averageArray(playerTwoPoints) < averageArray(playerOnePoints)) {
-//     console.log(`-END GAME-
-//   Player Two: ${averageArray(playerTwoPoints)} Winner!`);
-// } else if (averageArray(playerTwoPoints) < averageArray(playerOnePoints)) {
-//     console.log(`-END GAME-
-//   Player Two: ${averageArray(playerTwoPoints)} Winner!`);
-// }

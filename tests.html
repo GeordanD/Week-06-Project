@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css">
+</head>
+<body>
+    <div id="mocha"><p><a href=".">Index</a></p></div>
+    <div id="messages"></div>
+    <div id="fixtrues"></div>
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/chai/chai.js"></script>
+    <script src="Deck.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script src="Deck_Test.js"></script>
+    <script>mocha.run();</script>
+</body>
+</html>
