@@ -57,7 +57,7 @@ function newDeck() {
     });
 }
 //This function takes the points array at the end and adds them up for a final score.
-
+//~~~~~~~~~~~~FOR SOME REASON IF YOU CHANGE ANYTHING IN THIS FUNCTION IT BREAKS JUST CTRL + Z AND IT FIXES IT ~~~~~~~~~~~
 function averageArray(array1) {
     playerSum = array1.reduce((previousValue, currentValue) => {
         return previousValue + currentValue
@@ -68,7 +68,7 @@ function averageArray(array1) {
     return playerSum;
     
 };
-
+// ~~~~~~~~~~~~FOR SOME REASON IF YOU CHANGE ANYTHING IN THIS FUNCTION IT BREAKS JUST CTRL + Z AND IT FIXES IT ~~~~~~~~~~~
 //This card class is necessary for the entire game too work because it needs to have the values and the suites to make sure their isn't multiples.
 
 class Card{
