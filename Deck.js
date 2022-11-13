@@ -63,7 +63,7 @@ function averageArray(array1) {
         return previousValue + currentValue
       
     });if (typeof array1 === String || typeof array1 === Boolean) {
-      throw new Error("array1 must be a Number");
+      throw new Error("array1 must be an Array([])");
     }
     return playerSum;
     
@@ -88,6 +88,15 @@ const halfDeck = Math.ceil(deck.cardsInDeck / 2);
 playerOneDeck = (deck.cards.slice(0, halfDeck));
 playerTwoDeck = (deck.cards.slice(halfDeck, deck.cardsInDeck));
 // console.log(playerOneDeck);
+
+//Lets players enter their names
+
+        let player1 = prompt("Player one enter a name please")
+        console.log(player1);
+
+        let player2 = prompt("Player two enter a name please")
+        console.log(player2);
+    
 /*
 This loop takes the two shuffled half of 
 the deck and compares the numbers/values
@@ -99,16 +108,16 @@ for (let i = 0; i < 26; i++) {
     const playerTwoCard = playerTwoDeck.pop();
     console.log(`
 ___Round ${i} Start!___
-    Player One's Card: ${cardsValue[playerOneCard.values]}`);
+    ${player1}s Card: ${cardsValue[playerOneCard.values]}`);
     console.log(`
-    Player Two's Card: ${cardsValue[playerTwoCard.values]}
+    ${player2}s Card: ${cardsValue[playerTwoCard.values]}
 ___Round ${i} End!___`);
     if (cardsValue[playerOneCard.values] > cardsValue[playerTwoCard.values]) {
         playerOnePoints.push(cardsValue[playerTwoCard.values], cardsValue[playerOneCard.values]);
-        console.log("Player One Wins");
+        console.log(`${player1} Wins`);
     }  else if (cardsValue[playerTwoCard.values] > cardsValue[playerOneCard.values]) {
         playerTwoPoints.push(cardsValue[playerTwoCard.values],cardsValue[playerOneCard.values])
-        console.log("Player Two Win");
+        console.log(`${player2} Wins`);
     } else {
         console.log("Draw no points");
     }
@@ -116,17 +125,17 @@ ___Round ${i} End!___`);
 
 //This portion of code is the final score board prints final scores of each player and who the
 console.log(`     ____FINAL SCORE'S____
-  Player One Total Score: ${averageArray(playerOnePoints)}
-  Player Two Total Score: ${averageArray(playerTwoPoints)}`);
+  ${player1}s Total Score: ${averageArray(playerOnePoints)}
+  ${player2}s Total Score: ${averageArray(playerTwoPoints)}`);
 // This loop is here to tell what player won the game
 let playerOneTotalSum = averageArray(playerOnePoints);
 let playerTwoTotalSum = averageArray(playerTwoPoints);
 if (playerOneTotalSum > playerTwoTotalSum) {
     console.log(`-END GAME-
-    Player One Winner! with ${playerOneTotalSum} Points!`);
+    ${player1} Winner! with ${playerOneTotalSum} Points!`);
 } else if (playerTwoTotalSum > playerOneTotalSum) {
   console.log(`-END GAME-
-    Player Two Winner! with ${playerTwoTotalSum} Points!`);
+    ${player2} Winner! with ${playerTwoTotalSum} Points!`);
 } else {
     console.log("-DRAW-")
 }
